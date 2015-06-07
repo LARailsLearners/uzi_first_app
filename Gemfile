@@ -25,12 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #fron end
 gem 'foundation-rails'
-# User Authentication
-gem 'therubyracer'
+
 gem 'devise'
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'omniauth-google'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
