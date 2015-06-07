@@ -5,16 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
-
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
+  <div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+      <nav class="tab-bar">
+        <section class="left-small">
+          <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+        </section>
+      </nav>
 
-    <%= yield %>
+      <aside class="left-off-canvas-menu">
+        <ul class="off-canvas-list">
+          <li><label>First App</label></li>
+          <li><a href="#">Option 1</a></li>
+          <li><a href="#" class="off-canvas-submenu-call">Option 2 <span class="right"> + </span></a></li>
+                  <ul class="off-canvas-submenu">
+                  <li><a href="#">Sub menu 1</a></li>
+                  <li><a href="#">Sub menu 2</a></li>
+                  <li><a href="#">Sub menu 3</a></li>
+                </ul>
+          <li><a href="#">Option 3</a></li>
+          <li><a href="#" class="off-canvas-submenu-call">Option 4 <span class="right"> + </span></a></li>
+                  <ul class="off-canvas-submenu">
+                  <li><a href="#">Sub menu 1</a></li>
+                  <li><a href="#">Sub menu 2</a></li>
+                  <li><a href="#">Sub menu 3</a></li>
+                </ul>
+          <li><a href="#">Option 5</a></li>
+          <li><a href="#">Option 6</a></li>
+
+        </ul>
+      </aside>
+
+      <section class="main-section">
+      <% flash.each do |message_type, message| %>
+        <div class="row">
+          <div class="small-6 columns small-centered">
+              <div data-alert class="alert-box <%= message_type %>">
+                    <%= notice %>
+                    <a href="#" class="close">&CircleTimes;</a>
+                </div>
+          </div>
+          </div>
+          <% end %>
+        <%= yield %>
+
+      </section>
+
+    <a class="exit-off-canvas"></a>
+
+    </div>
+  </div>
 
   </body>
 </html>
